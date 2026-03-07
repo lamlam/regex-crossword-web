@@ -1,0 +1,10 @@
+{
+  "rows": 3,
+  "cols": 3,
+  "difficulty": "medium",
+  "seed": 100,
+  "alphabet": "0248HUXY",
+  "rowHints": ["^H4[4HU]$", "^Y[04U]X$", "^H8[UY]$"],
+  "colHints": ["^HY[4H]$", "^[4HX]08$", "^(YXY|4[04X]U)$"],
+  "solution": [["H","4","4"],["Y","0","X"],["H","8","U"]]
+}

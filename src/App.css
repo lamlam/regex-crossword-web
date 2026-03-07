@@ -1,0 +1,196 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app h1 {
+  margin: 0;
+}
+
+.puzzle-info {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Crossword Grid */
+.crossword-container {
+  overflow-x: auto;
+}
+
+.crossword-grid {
+  display: grid;
+  gap: 2px;
+  background: #555;
+  border: 3px solid #555;
+  border-radius: 4px;
+}
+
+.grid-corner {
+  background: transparent;
+  border: none;
+}
+
+.col-hint {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  background: transparent;
+  min-width: 60px;
+}
+
+.row-hint {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+}
+
+.hint-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.hint-label--correct {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.hint-label--incorrect {
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Cell */
+.cell {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cell {
+    background: #2a2a2a;
+    color: #fff;
+  }
+  .cell:hover {
+    background: #3a3a3a;
+  }
+  .cell--selected {
+    background: #3d5afe !important;
+    color: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .cell {
+    background: #fff;
+    color: #213547;
+  }
+  .cell:hover {
+    background: #e8e8e8;
+  }
+  .cell--selected {
+    background: #bbdefb !important;
+    color: #213547;
+  }
+}
+
+/* Character Buttons */
+.character-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.char-btn {
+  min-width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.char-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.char-btn--clear {
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.check-btn {
+  font-size: 1.1rem;
+  padding: 0.6em 2em;
+  background: #3d5afe;
+  color: #fff;
+  border: none;
+}
+
+.check-btn:hover {
+  background: #304ffe;
+  border-color: transparent;
+}
+
+.new-puzzle-btn {
+  font-size: 1.1rem;
+  padding: 0.6em 2em;
+}
+
+/* Result */
+.result {
+  font-size: 1.1rem;
+}
+
+.result--solved {
+  color: #4caf50;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Puzzle Selector */
+.puzzle-selector {
+  border: 2px dashed #666;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: border-color 0.2s;
+  min-width: 300px;
+}
+
+.puzzle-selector--dragover {
+  border-color: #3d5afe;
+}
+
+.error {
+  color: #f44336;
+  margin-top: 0.5rem;
+}
