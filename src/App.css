@@ -22,6 +22,7 @@
 /* Crossword Grid */
 .crossword-container {
   overflow-x: auto;
+  max-width: 100%;
 }
 
 .crossword-grid {
@@ -177,13 +178,64 @@
 }
 
 /* Puzzle Selector */
+.puzzle-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  min-width: 300px;
+}
+
+.preset-list {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preset-btn {
+  font-size: 1.1rem;
+  padding: 0.6em 1.5em;
+  background: #3d5afe;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.preset-btn:hover {
+  background: #304ffe;
+}
+
+.preset-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.puzzle-selector-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  opacity: 0.5;
+  font-size: 0.85rem;
+}
+
+.puzzle-selector-divider::before,
+.puzzle-selector-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid currentColor;
+}
+
 .puzzle-selector {
   border: 2px dashed #666;
   border-radius: 12px;
-  padding: 3rem 2rem;
+  padding: 2rem;
   text-align: center;
   transition: border-color 0.2s;
-  min-width: 300px;
+  width: 100%;
 }
 
 .puzzle-selector--dragover {
@@ -193,4 +245,132 @@
 .error {
   color: #f44336;
   margin-top: 0.5rem;
+}
+
+/* ===== Mobile (max-width: 600px) ===== */
+@media (max-width: 600px) {
+  .app {
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+
+  .app h1 {
+    font-size: 1.3rem;
+  }
+
+  .puzzle-info {
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* Column hints: rotate vertically so long regex patterns don't blow out width */
+  .col-hint {
+    min-width: unset;
+    padding: 0.25rem 0;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .col-hint .hint-label {
+    writing-mode: vertical-rl;
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .row-hint {
+    padding: 0.125rem 0.25rem;
+  }
+
+  .row-hint .hint-label {
+    font-size: 0.7rem;
+  }
+
+  /* Shrink cells */
+  .cell {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  /* Character buttons: tighter grid */
+  .character-buttons {
+    gap: 0.3rem;
+  }
+
+  .char-btn {
+    min-width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    padding: 0.4em 0.6em;
+  }
+
+  .char-btn--clear {
+    font-size: 0.8rem;
+  }
+
+  /* Actions */
+  .actions {
+    gap: 0.5rem;
+  }
+
+  .check-btn,
+  .new-puzzle-btn {
+    font-size: 0.95rem;
+    padding: 0.5em 1.2em;
+  }
+
+  /* Puzzle Selector */
+  .puzzle-selector-container {
+    min-width: unset;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .preset-btn {
+    font-size: 0.95rem;
+    padding: 0.5em 1em;
+  }
+
+  .puzzle-selector {
+    padding: 1.25rem;
+  }
+
+  .puzzle-selector p {
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+  }
+}
+
+/* ===== Very narrow (max-width: 400px) ===== */
+@media (max-width: 400px) {
+  .app {
+    padding: 0.75rem 0.25rem;
+  }
+
+  .cell {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .col-hint .hint-label {
+    font-size: 0.6rem;
+  }
+
+  .row-hint .hint-label {
+    font-size: 0.6rem;
+  }
+
+  .char-btn {
+    min-width: 34px;
+    height: 36px;
+    font-size: 0.9rem;
+    padding: 0.3em 0.4em;
+  }
+
+  .check-btn,
+  .new-puzzle-btn {
+    font-size: 0.85rem;
+    padding: 0.4em 1em;
+  }
 }
