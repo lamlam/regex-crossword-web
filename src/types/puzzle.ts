@@ -6,5 +6,5 @@ export interface Puzzle {
   alphabet: string;
   rowHints: string[];
   colHints: string[];
-  solution: string[][];
+  solution?: string[][];
 }
